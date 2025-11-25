@@ -1,19 +1,17 @@
-const jwt = require('jsonwebtoken');
+const express = require('express');
+const router = express.Router();
+const {
+  authUser,
+  registerUser,
+  logoutUser,
+  getUserProfile,
+  updateUserProfile,
+} = require('../controllers/authController');
+const { protect } = require('../middleware/authMiddleware');
 
-const protect = (req, res, next) => {
-  const token = req.cookies.token; // Read from cookie
+router.post('/register', registerUser);
+router.post('/login', authUser);
+router.post('/logout', logoutUser);
+router.route('/profile').get(protect, getUserProfile).put(protect, updateUserProfile);
 
-  if (!token) {
-    return res.status(401).json({ message: 'Not authorized, no token' });
-  }
-
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
-    next();
-  } catch (error) {
-    res.status(401).json({ message: 'Not authorized, token failed' });
-  }
-};
-
-module.exports = { protect };
+module.exports = router;
