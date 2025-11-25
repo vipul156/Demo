@@ -94,9 +94,9 @@ const Login = () => {
                     </button>
                 </form>
                 <div className="mt-4 text-center">
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 font-medium transition-colors">
                         New Customer?{' '}
-                        <Link to="/register" className="text-blue-600 hover:underline">
+                        <Link to="/register" className="text-blue-600 hover:text-blue-700">
                             Register
                         </Link>
                     </p>

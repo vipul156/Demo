@@ -46,22 +46,22 @@ const Register = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-4">
+        <div className="min-h-[90vh] bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-4">
             <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-8">
                 <div className="text-center mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-2xl mb-4">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-2xl">
                         <UserPlus className="w-8 h-8 text-white" />
                     </div>
-                    <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                    <h1 className="text-3xl font-bold text-gray-900">
                         Create Account
                     </h1>
                     <p className="text-gray-600">
                         Sign up to get started
                     </p>
                 </div>
-                {error && <div className="bg-red-100 text-red-700 p-3 rounded mb-4">{error}</div>}
+                {error && <div className="bg-red-100 text-red-700 p-3 rounded mb-2">{error}</div>}
                 <form onSubmit={submitHandler}>
-                    <div className="mb-4">
+                    <div className="">
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                             Full Name
                         </label>
@@ -133,9 +133,9 @@ const Register = () => {
                     </button>
                 </form>
                 <div className="mt-4 text-center">
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 font-medium transition-colors">
                         Already have an account?{' '}
-                        <Link to="/login" className="text-blue-600 hover:underline">
+                        <Link to="/login" className="text-blue-600 hover:text-blue-700 font-medium transition-colors">
                             Login
                         </Link>
                     </p>
